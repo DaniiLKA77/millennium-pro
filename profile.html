@@ -1,0 +1,77 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Millennium Pro — Профиль</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/active-menu.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="top-section">
+            <div class="profile">
+            <div class="avatar-wrapper">
+                <img src="avatar.jpg" alt="User" onerror="this.src='img/default-avatar.svg'" />
+            </div>
+            <p class="username">Анна Иванова</p>
+            <div class="user-email warning">
+                <span>Укажите почту</span>
+            </div>
+            </div>
+
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="profile.html">
+                            <img src="./img/profile.svg" class="nav-icon" alt="Профиль" />
+                            Профиль
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <img src="./img/courses.svg" class="nav-icon" alt="Курсы" />
+                            Курсы
+                        </a>
+                    </li>
+                    <li>
+                        <a href="faq.html">
+                            <img src="./img/faq.svg" class="nav-icon" alt="FAQ" />
+                            FAQ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="bottom-menu">
+            <li>
+                <a href="settings.html">
+                    <img src="./img/settings.svg" class="nav-icon" alt="Настройки" />
+                    Настройки
+                </a>
+            </li>
+            <li>
+                <a href="logout.html">
+                    <img src="./img/logout.svg" class="nav-icon" alt="Выйти" />
+                    Выйти
+                </a>
+            </li>
+        </div>
+    </aside>
+
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Личный кабинет</h1>
+      <p>Здесь вы можете изменить данные профиля, загрузить аватар и т.д.</p>
+    </main>
+
+  </div>
+</body>
+</html>

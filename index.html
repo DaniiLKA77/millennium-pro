@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Millennium Pro — Курсы</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/active-menu.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="top-section">
+            <div class="profile">
+            <div class="avatar-wrapper">
+                <img src="avatar.jpg" alt="User" onerror="this.src='img/default-avatar.svg'" />
+            </div>
+            <p class="username">Анна Иванова</p>
+            <div class="user-email warning">
+                <span>Укажите почту</span>
+            </div>
+            </div>
+
+            <nav class="nav-links">
+                <ul>
+                    <li>
+                        <a href="profile.html">
+                            <img src="./img/profile.svg" class="nav-icon" alt="Профиль" />
+                            Профиль
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <img src="./img/courses.svg" class="nav-icon" alt="Курсы" />
+                            Курсы
+                        </a>
+                    </li>
+                    <li>
+                        <a href="faq.html">
+                            <img src="./img/faq.svg" class="nav-icon" alt="FAQ" />
+                            FAQ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="bottom-menu">
+            <li>
+                <a href="settings.html">
+                    <img src="./img/settings.svg" class="nav-icon" alt="Настройки" />
+                    Настройки
+                </a>
+            </li>
+            <li>
+                <a href="logout.html">
+                    <img src="./img/logout.svg" class="nav-icon" alt="Выйти" />
+                    Выйти
+                </a>
+            </li>
+        </div>
+    </aside>
+
+
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="lesson-header">
+        <h2>Текущий урок</h2>
+        <input type="search" placeholder="Поиск..." />
+      </div>
+
+      <div class="video-card">
+        <div class="video-header">
+          <h3>Основы маникюра</h3>
+          <span>Преподаватель: Наталья Миллер</span>
+        </div>
+        <div class="video-frame">🎥 Видео-заглушка</div>
+        <div class="video-footer">
+          <p>👥 Сейчас онлайн: 34 ученика</p>
+          <p>⏳ До конца: 45 минут</p>
+        </div>
+      </div>
+
+      <div class="participants">
+        <h4>Участники</h4>
+        <div class="avatars">
+          <div class="avatar">👩‍🎓</div>
+          <div class="avatar">👨‍🎓</div>
+          <div class="avatar">+29</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Chat & Materials -->
+    <aside class="chat-panel">
+      <div class="chat">
+        <h4>Чат</h4>
+        <div class="chat-messages">
+          <p><strong>Анна:</strong> А пилку лучше как держать?</p>
+          <p class="me">Вы: Смотрите видео — там объяснение в начале 👍</p>
+        </div>
+        <input type="text" placeholder="Написать сообщение..." />
+      </div>
+
+      <div class="extras">
+        <button>Материалы урока</button>
+        <button>Домашка</button>
+        <button>Ваши заметки</button>
+      </div>
+    </aside>
+
+  </div>
+</body>
+</html>

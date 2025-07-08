@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Выход — Millennium Pro</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .logout-message {
+      text-align: center;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .logout-message h1 {
+      margin-bottom: 15px;
+    }
+
+    .logout-message p {
+      color: #555;
+    }
+  </style>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // Очистка флага входа, если нужно: localStorage.removeItem('isLoggedIn');
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1500); // редирект через 1.5 секунды
+    });
+  </script>
+</head>
+<body>
+
+  <div class="logout-message">
+    <h1>Выход из аккаунта...</h1>
+    <p>Вы перенаправляетесь на страницу входа.</p>
+  </div>
+
+</body>
+</html>
