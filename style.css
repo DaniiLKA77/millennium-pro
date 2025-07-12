@@ -1,265 +1,435 @@
-/* ====================================================
-  ОБЩИЕ НАСТРОЙКИ
-==================================================== */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #f7f5f2; /* молочно-ореховый фон */
   color: #222;
 }
 
-.app-container {
+.app-wrapper {
   display: flex;
   height: 100vh;
-}
-
-/* ====================================================
-  САЙДБАР (Боковая панель)
-==================================================== */
-.sidebar {
-  width: 220px;
-  background: #111;
-  color: white;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
 }
 
-/* --- Верхняя часть сайдбара: профиль + меню --- */
-.top-section {
+/* Sidebar */
+.sidebar {
+  background-color: #000;
+  border-radius: 25px;
+  width: 100px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+  position: relative;
+  height: auto;
 }
 
-/* --- Блок профиля в сайдбаре --- */
-.sidebar .profile {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.avatar-wrapper {
+.logo-box {
   width: 60px;
   height: 60px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #ccc;
-}
-
-.avatar-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.username {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.user-email {
-  font-size: 12px;
-  background: #fff;
-  padding: 5px 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  display: inline-block;
-  color: #222;
-}
-
-.user-email.warning {
-  border-color: #f39c12;
-  background: #fff8e1;
-  color: #b9770e;
-}
-
-/* --- Навигационное меню (Профиль, Курсы, FAQ) --- */
-.nav-links {
-  margin-top: 20px;
-}
-
-.nav-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.nav-links li {
-  margin-bottom: 15px;
-}
-
-.nav-links li.active a {
-  font-weight: bold;
-  color: #fff;
-}
-
-/* --- Ссылки в навигации --- */
-.nav-links li a {
-  position: relative;
-  padding: 8px 0;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
-}
-
-/* --- Линии сверху и снизу --- */
-.nav-links li a::before,
-.nav-links li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: white;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.nav-links li a::before {
-  top: 0;
-}
-
-.nav-links li a::after {
-  bottom: 0;
-}
-
-/* --- Анимация при наведении --- */
-.nav-links li a:hover::before,
-.nav-links li a:hover::after {
-  transform: scaleX(1);
-}
-
-/* --- Постоянная рамка для активной страницы --- */
-.nav-links li.active a::before,
-.nav-links li.active a::after {
-  transform: scaleX(1);
-}
-
-
-.nav-icon {
-  width: 30px;
-  height: 30px;
-  vertical-align: middle;
-  margin-right: 8px;
-  filter: invert(1); /* Делает иконки белыми на тёмном фоне */
-}
-
-.sidebar a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-
-/* --- Нижнее меню (Настройки, Выйти) --- */
-.sidebar .bottom-menu {
-  list-style: none;
-  padding: 0;
-  margin-top: auto;
-}
-
-.sidebar .bottom-menu li {
-  margin-bottom: 15px;
-}
-
-
-/* ====================================================
-  ГЛАВНЫЙ КОНТЕНТ (main-content)
-==================================================== */
-.main-content {
-  flex: 1;
-  padding: 30px;
   background-color: #fff;
-}
-
-/* --- Шапка урока / поиск --- */
-.lesson-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.lesson-header input {
-  padding: 8px 12px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-/* --- Карточка видеоурока --- */
-.video-card {
-  background: #fafafa;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 12px;
-}
-
-.video-frame {
-  background: #ddd;
-  height: 200px;
-  border-radius: 10px;
-  margin: 15px 0;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 
-/* --- Участники --- */
-.participants {
-  margin-top: 20px;
+.logo-svg {
+  width: 160%;
+  height: auto;
+  object-fit: contain;
 }
 
-.avatars {
+.nav {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-item {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 15px;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.nav-item.active {
+  color: #000;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background-color: #f7f5f2;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: -1;
+}
+
+.logout {
+  margin-top: auto;
+}
+
+/* Контент */
+.main-content {
+  flex: 1;
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  overflow: auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
+
+.notify-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #000000;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.notify-btn:hover {
+  color: #a5b41c;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .avatar {
-  background: #eee;
-  padding: 10px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000; /* цвет и толщина обводки */
 }
 
-/* ====================================================
-  ПРАВАЯ ПАНЕЛЬ (ЧАТ, ДОП. КНОПКИ)
-==================================================== */
-.chat-panel {
-  width: 300px;
-  background: #fff;
-  border-left: 1px solid #eee;
-  padding: 20px;
+.user-name {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
 }
 
-.chat h4 {
-  margin-bottom: 10px;
+.arrow-icon {
+  font-size: 18px;
+  color: #000000;
 }
 
-.chat-messages {
-  height: 200px;
-  overflow-y: auto;
-  margin-bottom: 10px;
+.dropdown-menu {
+  position: absolute;
+  top: 70px;
+  right: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 100;
+  width: 160px;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
 }
 
-.chat input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
 }
 
-/* --- Кнопки внизу (материалы, домашка и т.д.) --- */
-.extras button {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
+.dropdown-menu ul li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: 0.2s ease;
+}
+
+.dropdown-menu ul li:hover {
+  background-color: #f5f5f5;
+}
+
+.hidden {
+  display: none;
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+  position: relative;
+}
+
+.notify-btn {
+  background: none;
   border: none;
-  border-radius: 6px;
-  background: #eee;
+  font-size: 22px;
+  color: #000000;
   cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.notify-btn:hover {
+  color: #a5b41c;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  font-size: 18px;
+  color: #000000;
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+  position: absolute;
+  list-style: none;
+  top: 50px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  z-index: 100;
+  width: 193px;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  background: #f0f0f0;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* Страница Мои данные profile.html*/
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.avatar-section {
+  position: relative;
+}
+
+.main-avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.main-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000;
+}
+
+.avatar-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000; /* ← добавлена чёрная обводка */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.main-avatar:hover .avatar-overlay {
+  background-color: #fff;
+}
+
+.avatar-section:hover .avatar-choices {
+  display: flex;
+}
+
+.avatar-choices {
+  display: none;
+  position: absolute;
+  top: 120px;
+  left: 0;
+  gap: 10px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.avatar-choices img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: 0.3s;
+}
+
+.avatar-choices img:hover {
+  border-color: #000;
+}
+
+.edit-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.edit-field {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 200px;
+  transition: 0.3s;
+  padding-right: 35px;
+}
+
+.edit-field:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.edit-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: #888;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.edit-icon:hover {
+  color: #000;
+}
+
+.save-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #333;
+}
+
+.hidden {
+  display: none;
+}
+
+#lastName {
+  margin-top: 10px;
 }
