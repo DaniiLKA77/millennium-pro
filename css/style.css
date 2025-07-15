@@ -258,6 +258,7 @@ body {
 .profile-card {
   position: relative;
   flex: 1;
+  max-width: 600px;
   max-height: 540px;
   background-color: #1f1f1f;
   color: #fff;
@@ -279,7 +280,7 @@ body {
 
 .user-id {
   position: absolute;
-  top: 20px;
+  bottom: 20px;   /* ⬅️ меняем top на bottom */
   right: 24px;
   font-size: 13px;
   color: #aaa;
@@ -330,7 +331,7 @@ body {
 .avatar-choices {
   display: none;
   position: absolute;
-  top: 205px;
+  top: 200px;
   left: 0;
   gap: 8px;
   background: #fff;
@@ -372,12 +373,12 @@ body {
 
 .edit-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #444;
   padding-bottom: 6px;
   margin-bottom: 12px;
-  position: relative;
+  gap: 40px;
 }
 
 .section-title {
@@ -386,36 +387,57 @@ body {
   gap: 6px;
   font-size: 20px;
   font-weight: 600;
-  min-width: 140px;
+  min-width: 180px;
+  flex: 1;
 }
 
-.edit-btn,
-.save-btn.mini {
-  background: none;
+/* Обёртка для кнопок */
+.edit-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 26px;
+ 
+}
+
+/* Кнопка редактирования (изменить) */
+.edit-btn {
+  font-size: 13px;
+  background-color: #444;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  color: #aaa;
   transition: 0.3s;
 }
 
-.edit-btn:hover,
-.save-btn.mini:hover {
-  color: #fff;
+.edit-btn:hover {
+  background-color: #555;
 }
 
-.edit-btn {
-  margin-left: 130px; 
-}
-
+/* Кнопка сохранения */
 .save-btn.mini {
   font-size: 13px;
   background-color: #25c46b;
   color: #fff;
   padding: 4px 10px;
   border-radius: 6px;
-  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
+
+/* При наведении */
+.save-btn.mini:hover {
+  background-color: #29d373;
+}
+
+/* Скрывающий класс */
+.hidden {
+  display: none !important;
+}
+
 
 /* ----------- FIELDS ----------- */
 .field-row {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Профиль — Millennium Pro</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="app-wrapper">
@@ -14,7 +14,7 @@
                 <img src="./img/logo.svg" alt="Logo" class="logo-svg"/>
             </div>
             <nav class="nav">
-                <a href="index.html" class="nav-item"><i class='bx bx-shopping-bag'></i></a>
+                <a href="shop.html" class="nav-item"><i class='bx bx-shopping-bag'></i></a>
                 <a href="course.html" class="nav-item"><i class='bx bx-book-open'></i></a>
                 <a href="faq.html" class="nav-item"><i class='bx bx-help-circle'></i></a>
                 <a href="settings.html" class="nav-item"><i class='bx bx-cog'></i></a>
@@ -76,11 +76,13 @@
                             <div class="info-inner">
                                 <div class="edit-header">
                                     <div class="section-title">
-                                    <i class='bx bx-user'></i>
-                                    <span>Мои данные</span>
+                                        <i class='bx bx-user'></i>
+                                        <span>Мои данные</span>
                                     </div>
-                                    <button class="edit-btn" id="editToggle"><i class='bx bx-pencil'></i></button>
-                                    <button class="save-btn mini hidden" id="saveProfile">Сохранить</button>
+                                    <div class="edit-controls">
+                                        <button class="edit-btn" id="editToggle">Изменить</button>
+                                        <button class="save-btn mini hidden" id="saveProfile">Сохранить</button>
+                                    </div>
                                 </div>
 
                                 <!-- Имя + Фамилия -->
