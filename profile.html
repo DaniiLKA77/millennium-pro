@@ -10,75 +10,203 @@
 <body>
     <div class="app-wrapper">
         <aside class="sidebar">
-        <div class="logo-box">
-            <img src="./img/logo.svg" alt="Logo" class="logo-svg"/>
-        </div>
-        <nav class="nav">
-            <a href="index.html" class="nav-item"><i class='bx bx-shopping-bag'></i></a>
-            <a href="course.html" class="nav-item"><i class='bx bx-book-open'></i></a>
-            <a href="faq.html" class="nav-item"><i class='bx bx-help-circle'></i></a>
-            <a href="settings.html" class="nav-item"><i class='bx bx-cog'></i></a>
-        </nav>
-        <div class="logout">
-            <a href="logout.html" class="nav-item"><i class='bx bx-log-out'></i></a>
-        </div>
+            <div class="logo-box">
+                <img src="./img/logo.svg" alt="Logo" class="logo-svg"/>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-item"><i class='bx bx-shopping-bag'></i></a>
+                <a href="course.html" class="nav-item"><i class='bx bx-book-open'></i></a>
+                <a href="faq.html" class="nav-item"><i class='bx bx-help-circle'></i></a>
+                <a href="settings.html" class="nav-item"><i class='bx bx-cog'></i></a>
+            </nav>
+            <div class="logout">
+                <a href="logout.html" class="nav-item"><i class='bx bx-log-out'></i></a>
+            </div>
         </aside>
 
         <main class="main-content">
             <div class="topbar">
-                <button class="notify-btn"><i class='bx bx-bell'></i></button>
+                <div class="notify-wrapper">
+                    <button class="notify-btn"><i class='bx bx-bell'></i></button>
+                    <div id="notification-popup" class="notify-popup hidden">
+                        <i class='bx bx-smile'></i>
+                        <span>Данные профиля обновлены</span>
+                    </div>
+                </div>
                 <div class="user-info">
-                <img src="./img/avatar1.png" alt="User" class="avatar">
-                <div class="user-name" id="user-toggle">
-                    <span class="firstname">Анна</span>
-                    <span class="lastname">Иванова</span>
-                    <i class='bx bx-chevron-down arrow-icon'></i>
-                </div>
-                <div class="dropdown-menu hidden" id="dropdown">
-                    <ul>
-                    <li><a href="profile.html"><i class='bx bx-user'></i> Мои данные</a></li>
-                    <li><a href="progress.html"><i class='bx bx-line-chart'></i> Мой прогресс</a></li>
-                    <li><a href="bonuses.html"><i class='bx bx-gift'></i> Бонусы и акции</a></li>
-                    <li><a href="support.html"><i class='bx bx-headphone'></i> Тех. поддержка</a></li>
-                    </ul>
-                </div>
+                    <img src="./img/avatar1.png" alt="User" class="avatar">
+                    <div class="user-name" id="user-toggle">
+                        <span class="firstname">Имя</span>
+                        <span class="lastname">Фамилия</span>
+                        <i class='bx bx-chevron-down arrow-icon'></i>
+                    </div>
+                    <div class="dropdown-menu hidden" id="dropdown">
+                        <ul>
+                            <li><a href="profile.html"><i class='bx bx-user'></i> Мои данные</a></li>
+                            <li><a href="progress.html"><i class='bx bx-line-chart'></i> Мой прогресс</a></li>
+                            <li><a href="bonuses.html"><i class='bx bx-gift'></i> Бонусы и акции</a></li>
+                            <li><a href="support.html"><i class='bx bx-headphone'></i> Тех. поддержка</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="profile-container">
-                <div class="avatar-section">
-                    <div class="main-avatar"  id="avatar-toggle">
-                        <img id="selected-avatar" src="./img/1.png" alt="Аватар">
-                        <div class="avatar-overlay" id="avatar-toggle">+</div>
+                <!-- Левая карточка с аватаром, выбором и инфой -->
+                <div class="profile-card">
+                    <!-- ID в правом верхнем углу -->
+                    <div class="user-id">ID: #28473</div>
+
+                    <div class="card-top">
+                        <div class="avatar-block">
+                            <div class="main-avatar" id="avatar-toggle">
+                                <img id="selected-avatar" src="./img/1.png" alt="Аватар" />
+                                <div class="avatar-overlay">+</div>
+                            </div>
+                            <div class="avatar-choices hidden" id="avatar-options">
+                                <img src="./img/1.png" alt="Avatar" onclick="changeAvatar(this)">
+                                <img src="./img/2.png" alt="Avatar" onclick="changeAvatar(this)">
+                                <img src="./img/3.png" alt="Avatar" onclick="changeAvatar(this)">
+                                <img src="./img/4.png" alt="Avatar" onclick="changeAvatar(this)">
+                                <img src="./img/5.png" alt="Avatar" onclick="changeAvatar(this)">
+                            </div>
+                        </div>
+
+                        <div class="info-block">
+                            <div class="info-inner">
+                                <div class="edit-header">
+                                    <div class="section-title">
+                                    <i class='bx bx-user'></i>
+                                    <span>Мои данные</span>
+                                    </div>
+                                    <button class="edit-btn" id="editToggle"><i class='bx bx-pencil'></i></button>
+                                    <button class="save-btn mini hidden" id="saveProfile">Сохранить</button>
+                                </div>
+
+                                <!-- Имя + Фамилия -->
+                                <div class="field-grid">
+                                    <div class="field-column">
+                                        <label class="label">Имя:</label>
+                                        <input type="text" class="edit-input" id="firstName" value="Елена" size="13" maxlength="16" readonly />
+                                    </div>
+                                    <div class="field-column">
+                                        <label class="label">Фамилия:</label>
+                                        <input type="text" class="edit-input" id="lastName" value="Рыбакина" size="13" maxlength="16" readonly  />
+                                    </div>
+                                </div>
+
+                                <!-- Город + Опыт -->
+                                <div class="field-grid">
+                                    <div class="field-column">
+                                        <label class="label">Город:</label>
+                                        <input type="text" class="edit-input" id="cityInput" value="Москва" size="13" maxlength="16" readonly  />
+                                    </div>
+                                    <div class="field-column">
+                                        <label class="label">Опыт:</label>
+                                        <input type="text" class="edit-input" id="expInput" value="Новичок" size="13" maxlength="16" readonly  />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
                     </div>
-                    <div class="avatar-choices hidden" id="avatar-options">
-                        <img src="./img/1.png" alt="Avatar" onclick="changeAvatar(this)">
-                        <img src="./img/2.png"  alt="Avatar" onclick="changeAvatar(this)">
-                        <img src="./img/3.png"  alt="Avatar" onclick="changeAvatar(this)">
-                        <img src="./img/4.png"  alt="Avatar" onclick="changeAvatar(this)">
-                        <img src="./img/5.png"  alt="Avatar" onclick="changeAvatar(this)">
+
+                    <div class="about-section">
+                        <h4>О себе</h4>
+                        <textarea id="about" maxlength="250" placeholder="Расскажите немного о себе..."></textarea>
+                        <div class="char-counter"><span id="charCount">0</span>/250 символов</div>
                     </div>
                 </div>
 
-                <div class="user-details">
-                    <div class="edit-wrapper">
-                        <input type="text" id="firstName" class="edit-field" value="Анна" disabled />
-                        <i class='bx bx-pencil edit-icon' onclick="enableEdit('firstName')"></i>
-                    </div>
-                    <div class="edit-wrapper">
-                        <input type="text" id="lastName" class="edit-field" value="Иванова" disabled />
-                        <i class='bx bx-pencil edit-icon' onclick="enableEdit('lastName')"></i>
-                    </div>
-                    <button class="save-btn hidden" onclick="saveName()">Сохранить</button>
-                </div>
 
+
+
+
+                <!-- Правая часть (пока пустая или временно убрана) -->
+                <div class="profile-right"></div>
             </div>
-
         </main>
     </div>
     
-   
-  
+<script>
+  const aboutTextarea = document.getElementById('about');
+  const charCount = document.getElementById('charCount');
+
+  aboutTextarea.addEventListener('input', () => {
+    charCount.textContent = aboutTextarea.value.length;
+  });
+</script>
+<script>
+  const editBtn = document.getElementById('editToggle');
+  const saveBtn = document.getElementById('saveProfile');
+
+  const inputs = [
+    document.getElementById('firstName'),
+    document.getElementById('lastName'),
+    document.getElementById('cityInput'),
+    document.getElementById('expInput')
+  ];
+
+  editBtn.addEventListener('click', () => {
+    inputs.forEach(input => {
+      input.readOnly = false;
+      input.classList.add('editable');
+    });
+    saveBtn.classList.remove('hidden');
+    editBtn.classList.add('hidden');
+  });
+
+  saveBtn.addEventListener('click', () => {
+    // Сохраняем имя и фамилию в localStorage
+    const first = document.getElementById('firstName').value.trim();
+    const last = document.getElementById('lastName').value.trim();
+    localStorage.setItem('firstName', first);
+    localStorage.setItem('lastName', last);
+
+    // Обновляем topbar
+    const topbarFirst = document.querySelector('.firstname');
+    const topbarLast = document.querySelector('.lastname');
+    if (topbarFirst) topbarFirst.textContent = first;
+    if (topbarLast) topbarLast.textContent = last;
+
+    // Блокируем поля
+    inputs.forEach(input => {
+      input.readOnly = true;
+      input.classList.remove('editable');
+    });
+    saveBtn.classList.add('hidden');
+    editBtn.classList.remove('hidden');
+  });
+
+  saveBtn.addEventListener('click', () => {
+    const first = document.getElementById('firstName').value.trim();
+    const last = document.getElementById('lastName').value.trim();
+    localStorage.setItem('firstName', first);
+    localStorage.setItem('lastName', last);
+
+    const topbarFirst = document.querySelector('.firstname');
+    const topbarLast = document.querySelector('.lastname');
+    if (topbarFirst) topbarFirst.textContent = first;
+    if (topbarLast) topbarLast.textContent = last;
+
+    inputs.forEach(input => {
+        input.readOnly = true;
+        input.classList.remove('editable');
+    });
+    saveBtn.classList.add('hidden');
+    editBtn.classList.remove('hidden');
+
+    // ✅ Показываем уведомление
+    showTopbarNotification();
+  });
+
+</script>
+
+
+
 
 <script src="js/app.js"></script>
 </body>

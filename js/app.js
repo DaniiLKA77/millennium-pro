@@ -94,3 +94,17 @@ window.addEventListener('DOMContentLoaded', () => {
   if (savedFirst && topbarFirst) topbarFirst.textContent = savedFirst;
   if (savedLast && topbarLast) topbarLast.textContent = savedLast;
 });
+
+// Показ уведомления под колокольчиком
+window.showTopbarNotification = function () {
+  const popup = document.getElementById('notification-popup');
+  if (!popup) return;
+
+  popup.classList.remove('hidden');
+  popup.classList.add('show');
+
+  setTimeout(() => {
+    popup.classList.remove('show');
+    setTimeout(() => popup.classList.add('hidden'), 300);
+  }, 2500);
+};
